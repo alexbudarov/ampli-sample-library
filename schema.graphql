@@ -1,0 +1,137 @@
+# This file was automatically generated. Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type AuthorDto {
+    email: String
+    firstName: String
+    id: Long
+    lastName: String
+}
+
+type BookDto {
+    authors: [AuthorDto]
+    genre: GenreDto
+    id: String
+    releaseYear: Int!
+    title: String
+}
+
+type GenreDto {
+    allowedForChildren: Boolean
+    id: Long
+    name: String
+}
+
+"Mutation root"
+type Mutation {
+    deleteAuthor(id: Long!): Boolean!
+    deleteBook(id: String!): Boolean!
+    deleteGenre(id: Long!): Boolean!
+    deletePublisher(id: String!): Boolean!
+    updateAuthor(input: AuthorDtoInput): AuthorDto
+    updateBook(input: BookDtoInput): BookDto
+    updateGenre(input: GenreDtoInput): GenreDto
+    updatePublisher(input: PublisherDtoInput): PublisherDto
+}
+
+type PublisherDto {
+    companyName: String
+    id: String
+    taxCode: String
+}
+
+"Query root"
+type Query {
+    findAuthor(id: Long!): AuthorDto
+    findBook(id: String!): BookDto
+    findGenre(id: Long!): GenreDto
+    findPublisher(id: String!): PublisherDto
+    hello: String
+    listAuthors: [AuthorDto]
+    listBooks(filterDto: BookFilterDtoInput): [BookDto]
+    listGenres: [GenreDto]
+    listPublishers: [PublisherDto]
+}
+
+"BigDecimal"
+scalar BigDecimal
+
+"BigInteger"
+scalar BigInteger
+
+"Byte"
+scalar Byte
+
+"Char"
+scalar Char
+
+"Date"
+scalar Date
+
+"DateTime"
+scalar DateTime
+
+"LocalDate"
+scalar LocalDate
+
+"LocalDateTime"
+scalar LocalDateTime
+
+"LocalTime"
+scalar LocalTime
+
+"Long"
+scalar Long
+
+"OffsetDateTime"
+scalar OffsetDateTime
+
+"OffsetTime"
+scalar OffsetTime
+
+"Short"
+scalar Short
+
+"Time"
+scalar Time
+
+"UUID"
+scalar UUID
+
+"Void"
+scalar Void
+
+input AuthorDtoInput {
+    email: String
+    firstName: String
+    id: Long
+    lastName: String
+}
+
+input BookDtoInput {
+    authors: [AuthorDtoInput]
+    genre: GenreDtoInput
+    id: String
+    releaseYear: Int!
+    title: String
+}
+
+input BookFilterDtoInput {
+    filter: String
+}
+
+input GenreDtoInput {
+    allowedForChildren: Boolean
+    id: Long
+    name: String
+}
+
+input PublisherDtoInput {
+    companyName: String
+    id: String
+    taxCode: String
+}

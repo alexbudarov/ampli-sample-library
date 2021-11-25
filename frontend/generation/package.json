@@ -1,0 +1,6 @@
+{
+  "name": "library-generation",
+  "devDependencies": {
+    "@amplicode/codegen": "0.5.3"
+  }
+}
